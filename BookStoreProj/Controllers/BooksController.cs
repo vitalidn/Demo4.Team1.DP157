@@ -29,6 +29,8 @@ namespace BookStoreProj.Controllers
             var books = from b in _context.Book
                         select b;
 
+            //books.w
+
             if (!string.IsNullOrEmpty(SearchTitle))
             {
                 books = books.Where(s => s.Title.Contains(SearchTitle));
@@ -47,7 +49,7 @@ namespace BookStoreProj.Controllers
             var BookGenreVM = new BookGenreViewModel
             {
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
-                Books = await books.ToListAsync()
+                Books = await books.OrderBy(b => b.Article).ToListAsync()
             };
 
             return View(BookGenreVM);
