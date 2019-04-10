@@ -19,7 +19,7 @@ namespace BookStoreProj.Controllers
         }
 
         // GET: Books
-        public async Task<IActionResult> Index(string bookGenre, string SearchTitle, string SearchAuthor)
+        public async Task<IActionResult> Index(string bookGenre, string SearchAuthor, string SearchTitle)
         {
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from b in _context.Book
@@ -29,17 +29,17 @@ namespace BookStoreProj.Controllers
             var books = from b in _context.Book
                         select b;
 
-            //books.w
+            if (!string.IsNullOrEmpty(SearchAuthor))
+            {
+                books = books.Where(s => s.Author.Contains(SearchAuthor));
+            }
 
             if (!string.IsNullOrEmpty(SearchTitle))
             {
                 books = books.Where(s => s.Title.Contains(SearchTitle));
             }
 
-            if (!string.IsNullOrEmpty(SearchAuthor))
-            {
-                books = books.Where(s => s.Title.Contains(SearchAuthor));
-            }
+            
 
             if (!string.IsNullOrEmpty(bookGenre))
             {
