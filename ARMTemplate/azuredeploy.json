@@ -4,7 +4,7 @@
     "parameters": {
         "envPrefixName": {
             "type": "string",
-            "defaultValue": "cust1"
+            "defaultValue": "StoreMiMo"
             
         },
         "username": {
