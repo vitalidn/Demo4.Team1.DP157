@@ -22,7 +22,11 @@
         "sqlAuthenticationPassword": {
             "type": "securestring",
             "defaultValue": "Dp157DevOps!"
-        }    
+        },
+		"numberWebServersInstances": {
+            "type": "int",
+            "defaultValue": 2
+        }		
       
     },
     "variables": {
@@ -57,7 +61,7 @@
         "webSrvSubnetRef": "[concat(variables('vnetId'), '/subnets/', 'FESubnetName')]",
         "webSrvPublicIP": "[concat(parameters('envPrefixName'), 'WebSrvPublicIP')]",
         "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'webAvailabilitySet')]",
-        "webSrvNumbOfInstances": '2',
+        "webSrvNumbOfInstances": "[parameters('numberOfWebSrvs')]",,
         "webSrvDnsNameforLBIP": "[concat(toLower(variables('webSrvName')), 'Lb')]",
         "webLbName": "[concat(variables('webSrvName'), 'AzureLoadBalancers')]",
         "webLblbID": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
