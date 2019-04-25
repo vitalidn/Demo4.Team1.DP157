@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "envPrefixName": {
-      "value": "cust1"
+      "value": "Stor1"
     },
     "username": {
       "value": null
@@ -18,13 +18,13 @@
       "value": null
     },
     "webSrvVMSize": {
-      "value": "Standard_DS2"
+      "value": "Standard_DS1"
     },
     "numberOfWebSrvs": {
       "value": 6
     },
     "sqlVMSize": {
-      "value": "Standard_DS3"
+      "value": "Standard_DS1"
     },
     "storageAccountType": {
       "value": "Premium_LRS"
