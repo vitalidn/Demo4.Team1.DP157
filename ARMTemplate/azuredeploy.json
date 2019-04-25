@@ -53,7 +53,7 @@
         "webSrvName": "[concat(parameters('envPrefixName'), 'WebServer')]",
         "webSrvVMSize": "Standard_DS1",
         "webSrvOSDiks": "[concat(parameters('envPrefixName'), 'WebSrvOS')]",
-        "webSrvNicName": "[concat(variables('webSrvName'), 'SrvNetworkInterface')]",
+        "webSrvNicName": "[concat(variables('webSrvName'), 'SrvNic')]",
         "webSrvSubnetRef": "[concat(variables('vnetId'), '/subnets/', 'FESubnetName')]",
         "webSrvPublicIP": "[concat(parameters('envPrefixName'), 'WebSrvPublicIP')]",
         "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'webAvailabilitySet')]",
