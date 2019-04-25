@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using BookStoreProj.Models;
 using System.Globalization;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace BookStoreProj
 {
@@ -33,11 +36,24 @@ namespace BookStoreProj
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<BookStoreContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("BookStoreContext")));
+
+            //services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+            //        .AddEntityFrameworkStores<BookStoreContext>();
+
+            //services.AddMvc(config =>
+            //{
+            //    // using Microsoft.AspNetCore.Mvc.Authorization;
+            //    // using Microsoft.AspNetCore.Authorization;
+            //    var policy = new AuthorizationPolicyBuilder()
+            //                     .RequireAuthenticatedUser()
+            //                     .Build();
+            //    config.Filters.Add(new AuthorizeFilter(policy));
+            //})
+            //    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddJsonLocalization(options => options.ResourcesPath = "Resources");
             services.AddMvc().AddViewLocalization();

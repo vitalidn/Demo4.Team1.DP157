@@ -10,8 +10,11 @@ namespace BookStoreDemo.Controllers
 {
     public class HomeController : Controller
     {
+        
         public IActionResult Index()
         {
+            ViewData["HostName"] = System.Net.Dns.GetHostName();
+
             return View();
         }
 
