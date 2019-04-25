@@ -2,17 +2,17 @@
 
 
 ## Deployment Project Demo4
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvitalidn%2FDemo4%2Fblob%2Fmaster%2FARMTemplate%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvitalidn%2FDemo4%2Fmaster%2FARMTemplate%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
 
 
 Use the template
 PowerShell
 
 New-AzResourceGroup -Name <Demo4> -Location <Central US>
-New-AzResourceGroupDeployment -ResourceGroupName <Demo4> -TemplateUri https://raw.githubusercontent.com/vitalidn/Demo4/blob/master/ARMTemplate/azuredeploy.json
-
+New-AzResourceGroupDeployment -ResourceGroupName <Demo4> -TemplateUri https://github.com/vitalidn/Demo4/master/ARMTemplate/azuredeploy.json
 
 
 
