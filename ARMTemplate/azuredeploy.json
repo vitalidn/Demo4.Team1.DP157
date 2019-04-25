@@ -23,7 +23,7 @@
             "type": "securestring",
             "defaultValue": "Dp157DevOps!"
         },
-		    "numberWebServers": {
+	"numberWebServers": {
             "type": "int",
             "defaultValue": 2
         }		
