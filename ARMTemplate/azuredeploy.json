@@ -72,8 +72,8 @@
         "lbProbeID": "[concat(variables('webLbId'),'/probes/tcpProbe')]",
         "vmExtensionName": "dscExtension",
         "vmCSExtensionName": "CustomScriptExtension",
-        "modulesUrl": "https://github.com/vitalidn/Demo4/master/ARMTemplate/WebServerConfig5.0.ps1",
-        "modulesDBUrl": "https://github.com/vitalidn/Demo4/master/ARMTemplate/configureDBfirewallUsers.ps1",
+        "modulesUrl": "https://raw.githubusercontent.com/vitalidn/Demo4/master/ARMTemplate/WebServerConfig.ps1?raw=true",
+	"modulesDBUrl": "https://github.com/vitalidn/Demo4/master/ARMTemplate/configureDBfirewallUsers.ps1",
         "configurationFunction": "WebServerConfig.ps1\\WebServerConfig",
         "sqlDns":"[concat(parameters('envPrefixName'), 'sql', uniqueString(resourceGroup().id))]"
     },
