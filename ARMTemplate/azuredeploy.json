@@ -4,7 +4,7 @@
     "parameters": {
         "envPrefixName": {
             "type": "string",
-            "defaultValue": "cust1"
+            "defaultValue": "Stor1"
             
         },
         "username": {
@@ -44,7 +44,7 @@
         "apiVersion": "2015-06-15",
         "storageName": "[concat(parameters('envPrefixName'), 'stg', uniqueString(resourceGroup().id))]",
         "vhdContainer": "vhds",
-        "virtualNetworkName": "[concat(parameters('envPrefixName'), 'Vnet')]",
+        "virtualNetworkName": "[concat(parameters('envPrefixName'), 'VirtualNetwork')]",
         "addressPrefix": "10.0.0.0/16",
         "feSubnetPrefix": "10.0.0.0/24",
         "dbSubnetPrefix": "10.0.2.0/24",
@@ -53,7 +53,7 @@
         "scriptFolder": ".",
         "scriptFileName": "configureDBfirewallUsers.ps1",
         "scriptParameters": "[parameters('username')]",
-        "sqlSrvDBName": "[concat(parameters('envPrefixName'), 'sqlSrv14')]",
+        "sqlSrvDBName": "[concat(parameters('envPrefixName'), 'SqlDatabaseSrv2014')]",
         "sqlVmSize": "[parameters('sqlVMSize')]",
         "sqlSrvDBOsDiskName": "[concat(parameters('envPrefixName'), 'DBSrvOS')]",
         "sqlSrvDBDataDiskName": "[concat(parameters('envPrefixName'), 'DBSrvData')]",
@@ -65,16 +65,16 @@
         "sqlImagePublisher": "MicrosoftSQLServer",
         "sqlImageOffer": "SQL2016SP1-WS2016",
         "sqlImageSku": "Standard",
-        "webSrvName": "[concat(parameters('envPrefixName'), 'webSrv')]",
+        "webSrvName": "[concat(parameters('envPrefixName'), 'WebSrv')]",
         "webSrvVMSize": "[parameters('webSrvVMSize')]",
-        "webSrvOSDiks": "[concat(parameters('envPrefixName'), 'WebSrvOS')]",
+        "webSrvOSDiks": "[concat(parameters('envPrefixName'), 'WebSrvOSDiks')]",
         "webSrvNicName": "[concat(variables('webSrvName'), 'Nic')]",
         "webSrvSubnetRef": "[concat(variables('vnetId'), '/subnets/', 'FESubnetName')]",
         "webSrvPublicIP": "[concat(parameters('envPrefixName'), 'websrvpip')]",
-        "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'webSrvAS')]",
+        "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'WebSrvAvailabilitySet')]",
         "webSrvNumbOfInstances": "[parameters('numberOfWebSrvs')]",
         "webSrvDnsNameforLBIP": "[concat(toLower(variables('webSrvName')), 'lb')]",
-        "webLbName": "[concat(variables('webSrvName'), 'lb')]",
+        "webLbName": "[concat(variables('webSrvName'), 'AzureLoadBalancer')]",
         "webLblbID": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
         "webLblb_PIP_Id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webSrvPublicIP'))]",
         "webLbId": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
@@ -83,8 +83,8 @@
         "lbProbeID": "[concat(variables('webLbId'),'/probes/tcpProbe')]",
         "vmExtensionName": "dscExtension",
         "vmCSExtensionName": "CustomScriptExtension",
-        "modulesUrl": "https://github.com/bayernmunich/AspNetWebApp/blob/master/WebServerConfig5.0.ps1.zip?raw=true",
-        "modulesDBUrl": "https://raw.githubusercontent.com/Microsoft/almvm/master/labs/vstsextend/deploymentgroups/armtemplate/configureDBfirewallUsers.ps1",
+        "modulesUrl": "https://github.com/vitalidn/Demo4/blob/master/ARMTemplate/WebServerConfig5.0.ps1.zip?raw=true",
+        "modulesDBUrl": "https://raw.githubusercontent.com/vitalidn/Demo4/blob/master/ARMTemplate/configureDBfirewallUsers.ps1",
         "configurationFunction": "WebServerConfig.ps1\\WebServerConfig",
         "sqlDns":"[concat(parameters('envPrefixName'), 'sql', uniqueString(resourceGroup().id))]"
     },
@@ -95,7 +95,7 @@
             "name": "[variables('feNSGName')]",
             "location": "[resourceGroup().location]",
             "tags": {
-                "displayName": "FrontEndNSG"
+                "displayName": "FrontEndNetworkSecurityGroups"
             },
             "properties": {
                 "securityRules": [
@@ -136,7 +136,7 @@
             "name": "[variables('dbNSGName')]",
             "location": "[resourceGroup().location]",
             "tags": {
-                "displayName": "BackEndNSG"
+                "displayName": "BackEndNetworkSecurityGroups"
             },
             "properties": {
                 "securityRules": [
@@ -272,7 +272,7 @@
             "location": "[resourceGroup().location]",
             "apiVersion": "[variables('apiVersion')]",
             "tags": {
-                "displayName": "SqlPIP"
+                "displayName": "SqlPublicIPAddresses"
             },
             "properties": {
                 "publicIPAllocationMethod": "Dynamic",
