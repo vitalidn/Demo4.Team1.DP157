@@ -23,15 +23,26 @@
             "type": "securestring",
             "defaultValue": "Dp157DevOps!"
         },
-        "numberOfWebServerInstances": {
+        "webSrvVMSize": {
+            "type": "string",
+            "defaultValue": "Standard_DS1"
+        },
+        "numberOfWebSrvs": {
             "type": "int",
             "defaultValue": 2
-        }    
-      
+        },
+        "sqlVMSize": {
+            "type": "string",
+            "defaultValue": "Standard_DS1"
+        },
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS"
+        }
     },
     "variables": {
         "apiVersion": "2015-06-15",
-        "storageName": "[concat(parameters('envPrefixName'), 'storage', uniqueString(resourceGroup().id))]",
+        "storageName": "[concat(parameters('envPrefixName'), 'Storage', uniqueString(resourceGroup().id))]",
         "vhdContainer": "vhds",
         "virtualNetworkName": "[concat(parameters('envPrefixName'), 'VirtualNetwork')]",
         "addressPrefix": "10.0.0.0/16",
@@ -43,7 +54,7 @@
         "scriptFileName": "configureDBfirewallUsers.ps1",
         "scriptParameters": "[parameters('username')]",
         "sqlSrvDBName": "[concat(parameters('envPrefixName'), 'SqlServer2014')]",
-        "sqlVmSize": "Standard_DS1",
+        "sqlVmSize": "[parameters('sqlVMSize')]",
         "sqlSrvDBOsDiskName": "[concat(parameters('envPrefixName'), 'DBSrvOS')]",
         "sqlSrvDBDataDiskName": "[concat(parameters('envPrefixName'), 'DBSrvData')]",
         "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
@@ -55,13 +66,13 @@
         "sqlImageOffer": "SQL2016SP1-WS2016",
         "sqlImageSku": "Standard",
         "webSrvName": "[concat(parameters('envPrefixName'), 'WebServer')]",
-        "webSrvVMSize": "Standard_DS1",
+        "webSrvVMSize": "[parameters('webSrvVMSize')]",
         "webSrvOSDiks": "[concat(parameters('envPrefixName'), 'WebSrvOS')]",
         "webSrvNicName": "[concat(variables('webSrvName'), 'SrvNetworkInterface')]",
         "webSrvSubnetRef": "[concat(variables('vnetId'), '/subnets/', 'FESubnetName')]",
         "webSrvPublicIP": "[concat(parameters('envPrefixName'), 'WebSrvPublicIP')]",
         "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'webAvailabilitySet')]",
-        "webSrvNumbOfInstances": "[parameters('numberOfWebServerInstances')]",
+        "webSrvNumbOfInstances": "[parameters('numberOfWebSrvs')]",
         "webSrvDnsNameforLBIP": "[concat(toLower(variables('webSrvName')), 'lb')]",
         "webLbName": "[concat(variables('webSrvName'), 'AzureLoadBalancers')]",
         "webLblbID": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
@@ -252,7 +263,7 @@
                 "displayName": "StorageForEnv"
             },
             "properties": {
-                "accountType": "Standard_LRS"
+                "accountType": "[parameters('storageAccountType')]"
             }
         },
         {
