@@ -22,16 +22,12 @@
         "sqlAuthenticationPassword": {
             "type": "securestring",
             "defaultValue": "Dp157DevOps!"
-        },
-        "numberOfWebServerInstances": {
-            "type": "int",
-            "defaultValue": 2
         }    
       
     },
     "variables": {
         "apiVersion": "2015-06-15",
-        "storageName": "[concat(parameters('envPrefixName'), 'storage', uniqueString(resourceGroup().id))]",
+        "storageName": "[concat(parameters('envPrefixName'), 'stg', uniqueString(resourceGroup().id))]",
         "vhdContainer": "vhds",
         "virtualNetworkName": "[concat(parameters('envPrefixName'), 'VirtualNetwork')]",
         "addressPrefix": "10.0.0.0/16",
@@ -61,7 +57,7 @@
         "webSrvSubnetRef": "[concat(variables('vnetId'), '/subnets/', 'FESubnetName')]",
         "webSrvPublicIP": "[concat(parameters('envPrefixName'), 'WebSrvPublicIP')]",
         "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'webAvailabilitySet')]",
-        "webSrvNumbOfInstances": "[parameters('numberOfWebServerInstances')]",
+        "webSrvNumbOfInstances": "2",
         "webSrvDnsNameforLBIP": "[concat(toLower(variables('webSrvName')), 'lb')]",
         "webLbName": "[concat(variables('webSrvName'), 'AzureLoadBalancers')]",
         "webLblbID": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
