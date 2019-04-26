@@ -9,7 +9,7 @@
         },
         "username": {
             "type": "string",
-            "defaultValue": "vmadmin"
+            "defaultValue": "saw"
         },
         "password": {
             "type": "securestring",
@@ -17,7 +17,7 @@
         },
         "sqlAuthenticationLogin": {
             "type": "string",
-            "defaultValue": "sqladmin"
+            "defaultValue": "saw"
         },
         "sqlAuthenticationPassword": {
             "type": "securestring",
