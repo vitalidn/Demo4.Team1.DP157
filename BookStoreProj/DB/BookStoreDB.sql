@@ -1,3 +1,9 @@
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name='BookStoreDB') 
+BEGIN 
+CREATE DATABASE [BookStoreDB]
+END
+GO
+
 USE BookStoreDB
 IF OBJECT_ID(N'Book', N'U') IS NULL
 BEGIN 
