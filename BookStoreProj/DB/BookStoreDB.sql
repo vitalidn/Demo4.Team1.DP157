@@ -1,4 +1,4 @@
-USE ookStoreDB
+USE BookStoreDB
 IF OBJECT_ID(N'Book', N'U') IS NULL
 BEGIN 
     CREATE TABLE [dbo].[Book](
