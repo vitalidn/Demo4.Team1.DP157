@@ -36,18 +36,5 @@ The intent of this project is to developing cloud based online book store:
 •	Customers should be able to view general book information and also add chosen book to the Cart.
 •	Preferable stack is ASP.NET MVC , MS SQL and Azure Cloud.
 
-##	Technology stack Description
-### Development tools:
-•	MS Visual Studio 2017
-•	ASP.NET Core MVC Framework 
-•	Entity Framework Core 2.1.1
-### CI/CD service :
-•	Azure DevOps Pipelines
-### Deployment service :
-•	Azure AppServices;
-•	Azure SQL
-•	Azure Insights
-
-
 
 
