@@ -6,7 +6,9 @@
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
+## Status
 
+ [![Build status](https://dev.azure.com/Team1DP-157DevOps/Demo4/_apis/build/status/Demo4-Continuous%20Integration)](https://dev.azure.com/Team1DP-157DevOps/Demo4/_build/latest?definitionId=-1)
 
 ![image](https://vsrm.dev.azure.com/DP157DevOps/_apis/public/Release/badge/52752702-e31c-4a1b-9602-855eab975bfd/4/10) ![image](https://vsrm.dev.azure.com/DP157DevOps/_apis/public/Release/badge/52752702-e31c-4a1b-9602-855eab975bfd/6/12)
 
