@@ -5,14 +5,26 @@
         "envPrefixName": {
             "type": "string",
             "defaultValue": "demo4"
+        },
+        "username": {
+            "type": "string",
+            "defaultValue": "saw"
+        },
+        "password": {
+            "type": "string",
+            "defaultValue": "Dp157DevOps!"
+        },
+	"sqlAuthenticationLogin": {
+            "type": "string",
+            "defaultValue": "saw"
+        },
+        "sqlAuthenticationPassword": {
+            "type": "string",
+            "defaultValue": "Dp157DevOps!"
         }
 	      
     },
     "variables": {
-	"username": "saw",
-	"password": "Dp157DevOps!",
-	"sqlAuthenticationLogin": "saw",   
-	"sqlAuthenticationPassword": "Dp157DevOps!",   
 	"apiVersion": "2015-06-15",
         "storageName": "[concat(parameters('envPrefixName'), 'stg', uniqueString(resourceGroup().id))]",
         "vhdContainer": "vhds",
