@@ -5,32 +5,15 @@
         "envPrefixName": {
             "type": "string",
             "defaultValue": "demo4"
-            
-        },
-        "username": {
-            "type": "string",
-            "defaultValue": "saw"
-        },
-        "password": {
-            "type": "securestring",
-            "defaultValue": "Dp157DevOps!"
-        },
-        "sqlAuthenticationLogin": {
-            "type": "string",
-            "defaultValue": "saw"
-        },
-        "sqlAuthenticationPassword": {
-            "type": "securestring",
-            "defaultValue": "Dp157DevOps!"
-        },
-	"numberWebServers": {
-            "type": "int",
-            "defaultValue": 2
-        }		
-      
+        }
+	      
     },
     "variables": {
-        "apiVersion": "2015-06-15",
+	"username": "saw",
+	"password": "Dp157DevOps!",
+	"sqlAuthenticationLogin": "saw",   
+	"sqlAuthenticationPassword": "Dp157DevOps!",   
+	"apiVersion": "2015-06-15",
         "storageName": "[concat(parameters('envPrefixName'), 'stg', uniqueString(resourceGroup().id))]",
         "vhdContainer": "vhds",
         "virtualNetworkName": "[concat(parameters('envPrefixName'), 'VirtualNetwork')]",
@@ -61,7 +44,7 @@
         "webSrvSubnetRef": "[concat(variables('vnetId'), '/subnets/', 'FESubnetName')]",
         "webSrvPublicIP": "[concat(parameters('envPrefixName'), 'WebSrvPublicIP')]",
         "webSrvAvailabilitySetName": "[concat(parameters('envPrefixName'), 'webAvailabilitySet')]",
-        "webSrvNumbOfInstances": "[parameters('numberWebServers')]",
+        "webSrvNumbOfInstances": 2,
         "webSrvDnsNameforLBIP": "[concat(toLower(variables('webSrvName')), 'lb')]",
         "webLbName": "[concat(variables('webSrvName'), 'AzureLoadBalancers')]",
         "webLblbID": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
