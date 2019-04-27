@@ -73,5 +73,5 @@ popd
 
 Write-Output "Successfully added users to SQL roles"
 # Enable SQl auth and SQL User
-Invoke-WebRequest https://raw.githubusercontent.com/bayernmunich/sqlscript/master/sqlauthwithuser.ps1 -OutFile "D:\sqlauthwithuser.ps1"
+Invoke-WebRequest https://raw.githubusercontent.com/vitalidn/Demo4/master/ARMTemplate/sqlauthwithuser.ps1 -OutFile "D:\sqlauthwithuser.ps1"
 Invoke-Expression "D:\sqlauthwithuser.ps1"
