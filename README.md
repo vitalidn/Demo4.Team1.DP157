@@ -20,10 +20,10 @@
 The Main Goal is to prepare fully automated solution to deploy ASP.NET MVC application to the MS Azure. As a CI service Azure DevOps should be used. As a PaaS cloud provider MS Azure AppServices should be used.
 
 ## Environment Diagram
-![image](https://github.com/vitalidn/Demo4/blob/master/images/01.jpg)
+![image](https://github.com/vitalidn/Demo4.Team1.DP157/blob/master/images/01.jpg)
 
 ## Deployment Diagram
-![image](https://github.com/vitalidn/Demo4/blob/master/images/02.jpg)
+![image](https://github.com/vitalidn/Demo4.Team1.DP157/blob/master/images/02.jpg)
 
 
 
